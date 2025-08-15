@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export default function Navbar() {
     return (
-        <nav className="bg-black w-full max-w-[1440px] h-[79px] px-6 flex items-center justify-between mx-auto">
-            <div className="flex items-center space-x-2 ml-[-40px]">
+        <nav className="bg-black w-full max-w-[1440px] h-[79px] px-4 sm:px-6 lg:px-12 flex items-center justify-between mx-auto">
+            <div className="flex items-center space-x-2">
                 <Image
                     src={imageIcons.myxelliah}
                     alt="company-logo"
@@ -16,11 +16,31 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center space-x-6">
-                <Image src={imageIcons.bell} alt="notifications-icon" className="h-6 w-6 text-white cursor-pointer hover:text-gray-300" />
-                <Image src={imageIcons.calculator} alt="calculator-icon" className="h-6 w-6 text-white cursor-pointer hover:text-gray-300" />
-                <Image src={imageIcons.calender} alt="calculator-icon" className="h-6 w-6 text-white cursor-pointer hover:text-gray-300" />
-                <Image src={imageIcons.chat} alt="calculator-icon" className="h-6 w-6 text-white cursor-pointer hover:text-gray-300" />
-                <Image src={imageIcons.dee} alt="calculator-icon" className="h-6 w-6 text-white cursor-pointer hover:text-gray-300" />
+                <Image
+                    src={imageIcons.bell}
+                    alt="notifications-icon"
+                    className="h-6 w-6 text-white cursor-pointer hover:text-gray-300"
+                />
+                <Image
+                    src={imageIcons.calculator}
+                    alt="calculator-icon"
+                    className="h-6 w-6 text-white cursor-pointer hover:text-gray-300"
+                />
+                <Image
+                    src={imageIcons.calender}
+                    alt="calendar-icon"
+                    className="h-6 w-6 text-white cursor-pointer hover:text-gray-300"
+                />
+                <Image
+                    src={imageIcons.chat}
+                    alt="chat-icon"
+                    className="h-6 w-6 text-white cursor-pointer hover:text-gray-300"
+                />
+                <Image
+                    src={imageIcons.dee}
+                    alt="profile-icon"
+                    className="h-6 w-6 text-white cursor-pointer hover:text-gray-300"
+                />
             </div>
         </nav>
 

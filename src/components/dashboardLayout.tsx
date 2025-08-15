@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { FaChartBar, FaList } from "react-icons/fa";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { gridCards, salesData } from "@/utils/stores";
+import {caouselCards, dualCards, gridCards, imageIcons, salesData} from "@/utils/stores";
+import Image from "next/image";
 
 
 export default function DashboardLayout() {
@@ -84,30 +85,13 @@ export default function DashboardLayout() {
 
         {/* Bottom Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {[1, 2].map((i) => (
-            <div
-              key={i}
-              className="relative bg-gray-300 h-48 rounded-lg flex items-end p-4"
-              style={{
-                backgroundImage: `url('https://via.placeholder.com/300x200')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div>
-                <p className="text-white text-sm">Small text</p>
-                <p className="text-white font-bold">Bolder Text</p>
+          {caouselCards.map((item:any,i:number) => (
+              <div key={i} className="relative h-48 w-full rounded-lg overflow-hidden">
+                  <Image src={item} alt="Background" fill style={{ objectFit: 'cover' }} className="z-0"/>
+                  <div className="absolute inset-0 z-10 flex items-end p-4 bg-gray-300/30">
+                      {/* Overlay content here */}
+                  </div>
               </div>
-              {/* Carousel dots */}
-              <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-                {[1, 2, 3].map((dot) => (
-                  <span
-                    key={dot}
-                    className="w-2 h-2 bg-white rounded-full"
-                  ></span>
-                ))}
-              </div>
-            </div>
           ))}
         </div>
       </div>
@@ -116,24 +100,24 @@ export default function DashboardLayout() {
       <div className="space-y-4">
         {/* Top Row */}
         <div className="space-y-4">
-          {[1, 2].map((i) => (
+          {dualCards.map((item:any,i:number) => (
             <div key={i} className="border border-gray-300  rounded h-[173px]">
               {/* Navbar */}
               <div className="flex justify-between items-center border-b border-gray-300 bg-gray-100 p-2">
                 <div className="flex items-center space-x-2">
-                  <FaList />
-                  <span className="text-sm font-semibold">
-                    Listings Overview
-                  </span>
+                    {item.icon}
+                  <p className="text-sm">
+                    {item.title}
+                  </p>
                 </div>
                 <button className="text-blue-500 text-xs">View all &gt;</button>
               </div>
               {/* Grid */}
-              <div className="grid grid-cols-3 p-4 text-center">
-                {[1, 2, 3].map((j) => (
+              <div className="grid grid-cols-3 p-4 mt-[20px] text-center justify-center">
+                {item.data.map((elem:any,j:number) => (
                   <div key={j}>
-                    <p className="text-xs text-gray-500">Title</p>
-                    <p className="text-lg font-bold">123</p>
+                    <p className="text-sm text-gray-500">{elem.title}</p>
+                    <p className="text-2xl font-bold">{elem.value}</p>
                   </div>
                 ))}
               </div>
@@ -141,26 +125,16 @@ export default function DashboardLayout() {
           ))}
         </div>
 
-        {/* Bottom Row */}
-        <div
-          className="relative bg-gray-300 h-48 rounded-lg flex items-end p-4"
-          style={{
-            backgroundImage: `url('https://via.placeholder.com/300x200')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div>
-            <p className="text-white text-sm">Small text</p>
-            <p className="text-white font-bold">Bolder Text</p>
+          <div className="relative h-48 w-full rounded-lg overflow-hidden">
+              <Image src={imageIcons.pic3} alt="Background"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="z-0"
+              />
+              <div className="absolute inset-0 z-10 flex items-end p-4 bg-gray-300/30">
+                  {/* Overlay content here */}
+              </div>
           </div>
-          {/* Carousel dots */}
-          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1">
-            {[1, 2, 3].map((dot) => (
-              <span key={dot} className="w-2 h-2 bg-white rounded-full"></span>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
