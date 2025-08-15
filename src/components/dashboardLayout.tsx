@@ -25,18 +25,26 @@ export default function DashboardLayout() {
               </p>
             </div>
             {/* Right */}
-            <div className="flex space-x-10">
-              {buttons.map((label) => (
-                <button
-                  key={label}
-                  onClick={() => setActive(label)}
-                  className={`rounded px-3 py-1 text-sm cursor-pointer transition-colors duration-200 
-            ${active === label ? "bg-gray-200" : "bg-white hover:bg-gray-200"}`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
+              <div className="flex flex-col space-y-4">
+                  <button className="px-4 py-2 rounded-full border border-gray-400 w-fit bg-white text-black text-sm self-end">
+                      View transactions
+                  </button>
+
+                  <div className="flex space-x-4">
+                      {buttons.map((label) => (
+                          <button
+                              key={label}
+                              onClick={() => setActive(label)}
+                              className={`rounded px-3 py-1 text-sm cursor-pointer transition-colors duration-200 
+          ${active === label ? "bg-gray-200" : "bg-white hover:bg-gray-200"}`}
+                          >
+                              {label}
+                          </button>
+                      ))}
+                  </div>
+              </div>
+
+
           </div>
 
           {/* Bottom Half */}
@@ -63,22 +71,22 @@ export default function DashboardLayout() {
             </div>
 
             {/* 2x2 Grid */}
-            <div className="flex-1 grid grid-cols-2 gap-4">
-              {gridCards.map((item: any, i: number) => (
-                <div
-                  key={i}
-                  className="text-center border border-gray-300  rounded-lg p-2 flex flex-col justify-center items-center"
-                >
-                  <p className={`text-lg font-semibold ${item.color}`}>{item.amount}</p>
-                  <p className="flex items-center space-x-2 text-xs text-gray-500">
-                    <span>{item.text}</span>
-                    <span>{item.icon}</span>
-                    <span className={`${item.percentColor}`}>{item.percent}</span>
-                  </p>
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {gridCards.map((item: any, i: number) => (
+                      <div
+                          key={i}
+                          className="text-center border border-gray-300 rounded-lg p-2 flex flex-col justify-center items-center"
+                      >
+                          <p className={`text-lg font-semibold ${item.color}`}>{item.amount}</p>
+                          <p className="flex items-center space-x-2 text-xs text-gray-500">
+                              <span>{item.text}</span>
+                              <span>{item.icon}</span>
+                              <span className={`${item.percentColor}`}>{item.percent}</span>
+                          </p>
+                      </div>
+                  ))}
+              </div>
 
-                </div>
-              ))}
-            </div>
           </div>
 
         </div>
@@ -101,7 +109,7 @@ export default function DashboardLayout() {
         {/* Top Row */}
         <div className="space-y-4">
           {dualCards.map((item:any,i:number) => (
-            <div key={i} className="border border-gray-300  rounded h-[173px]">
+            <div key={i} className="border border-gray-300  rounded h-[190px]">
               {/* Navbar */}
               <div className="flex justify-between items-center border-b border-gray-300 bg-gray-100 p-2">
                 <div className="flex items-center space-x-2">
