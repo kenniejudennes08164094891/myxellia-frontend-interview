@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { imageIcons, people } from "@/utils/stores";
 import Image from "next/image";
+import { ModalProps } from "@/utils/constants";
+
+
 
 const BudgetModal = ({ isOpen, onClose }: any) => {
   const [screnHeight, setScreenHeight] = useState<string>("");

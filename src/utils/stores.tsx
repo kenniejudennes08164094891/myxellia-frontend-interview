@@ -29,7 +29,7 @@ import item3 from '../assets/images/item3.svg';
 
 
 
-export const imageIcons: any = {
+export const imageIcons:any = {
     myxellia,
     myxelliah,
     bell, calculator,
