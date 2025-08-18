@@ -21,7 +21,12 @@ import title2 from '../assets/images/title2.svg';
 import pic1 from '../assets/images/pic1.png';
 import pic2 from '../assets/images/pic2.png';
 import pic3 from '../assets/images/pic3.png';
-import React from "react";
+import bgImage from '../assets/images/media.png';
+import item1 from '../assets/images/item1.svg';
+import item2 from '../assets/images/item2.svg';
+import item3 from '../assets/images/item3.svg';
+
+
 
 
 export const imageIcons: any = {
@@ -31,7 +36,7 @@ export const imageIcons: any = {
     calender, chat,
     dee, home, box, user, pages, scroll, search,
     frame1, frame2, frame3, frame4, title1, title2,
-    pic1, pic2, pic3
+    pic1, pic2, pic3,bgImage,item1,item2,item3
 }
 
 export const gridCards:any[] = [
@@ -123,3 +128,25 @@ export const dualCards:any[] = [
 export const caouselCards:string[] = [
     imageIcons.pic1, imageIcons.pic2
 ]
+
+
+export const people = [
+  {
+    id: 1,
+    name: "Set up annual budgets by account category",
+    email: "Allocate funds across income and expense lines with full visibility.",
+    image: imageIcons.item1,
+  },
+  {
+    id: 2,
+    name: "Track actuals vs budget in real time",
+    email: "See how your community is performing against plan, month by month.",
+    image:  imageIcons.item2,
+  },
+  {
+    id: 3,
+    name: "Adjust figures and forecast with ease",
+    email: "Edit amounts, apply percentage changes, or roll forward last year’s data—all in one place.",
+    image:  imageIcons.item3,
+  }
+];
